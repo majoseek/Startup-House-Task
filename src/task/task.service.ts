@@ -18,15 +18,20 @@ export const get_task = async (): Promise<Task> => {
     else
         return {
             description: "",
-            start_time: new Date(),
-            end_time: new Date(),
+            start_time: null,
+            end_time: null,
         };
 };
 export const add_task = async (task: Task): Promise<null | void> => {
     await stop_task();
     await client.query(
-        `INSERT INTO tasks(description,start_time,end_time) VALUES('${task.description}','${task.start_time}',NULL)`
+        `INSERT INTO tasks(description,start_time,end_time) VALUES('${task.description}',current_timestamp,NULL)`
     );
     return;
 };
-export const stop_task = async (): Promise<null | void> => {};
+export const stop_task = async (): Promise<null | void> => {
+    await client.query(`UPDATE tasks
+    SET end_time=current_timestamp
+    WHERE end_time IS NULL`);
+    return;
+};
