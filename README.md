@@ -21,3 +21,13 @@ Stops tracking task
 * PostgreSQL
 * Docker
 * Postman
+## Database
+It contains 1 table named "tasks".
+| id                 | description | start_time | end_time|
+| ------------------ |:-----------:| :---------:| -------:|
+| SERIAL PRIMARY KEY | varchar(50) | date       | date    |
+
+## Testing
+For testing I used Postman tool
+### Manual testing
+### Automated testing
