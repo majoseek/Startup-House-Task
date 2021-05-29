@@ -1,0 +1,1 @@
+CREATE TABLE tasks( id SERIAL PRIMARY KEY, description varchar(50), start_time date, end_time date); 
