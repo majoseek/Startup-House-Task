@@ -1,30 +1,33 @@
-import { Client } from "pg";
+import { Sequelize } from "sequelize";
 import { Task } from "./task.interface";
-
-const client = new Client({
-    user: "postgres",
-    host: "localhost",
-    database: "postgres",
-    password: "admin",
-    port: 5432,
-});
-client.connect();
+import database from "./task.database";
+import Task_model from "./task.model";
+try {
+    database.authenticate();
+    console.log("Connection to database has been established successfully.");
+} catch (error) {
+    console.error("Unable to connect to the database:", error);
+}
 
 /**
     *Returns task, which user is currently tracking
     @returns Promise<Task>
 */
 export const get_task = async (): Promise<Task> => {
-    const { rows } = await client.query(
-        "SELECT * FROM tasks WHERE end_time IS NULL"
-    );
-    if (rows && rows.length > 0) return rows[0];
-    else
+    const task = await Task_model.findOne({ where: { end_time: null } });
+    if (task) {
+        return {
+            description: task.getDataValue("description"),
+            start_time: task.getDataValue("start_time"),
+            end_time: task.getDataValue("end_time"),
+        };
+    } else {
         return {
             description: "",
             start_time: null,
             end_time: null,
         };
+    }
 };
 
 /**
@@ -34,9 +37,11 @@ export const get_task = async (): Promise<Task> => {
  */
 export const add_task = async (task: Task): Promise<null | void> => {
     await stop_task();
-    await client.query(
-        `INSERT INTO tasks(description,start_time,end_time) VALUES('${task.description}',current_timestamp,NULL)`
-    );
+    await Task_model.create({
+        description: task.description,
+        start_time: Sequelize.literal("CURRENT_TIMESTAMP"),
+        end_time: null,
+    });
     return;
 };
 
@@ -45,8 +50,13 @@ export const add_task = async (task: Task): Promise<null | void> => {
     @returns Promise<null | void>
 */
 export const stop_task = async (): Promise<null | void> => {
-    await client.query(`UPDATE tasks
-    SET end_time=current_timestamp
-    WHERE end_time IS NULL`);
+    await Task_model.update(
+        { end_time: Sequelize.literal("CURRENT_TIMESTAMP") },
+        {
+            where: {
+                end_time: null,
+            },
+        }
+    );
     return;
 };

@@ -1,6 +1,6 @@
 import express from "express";
 import * as dotenv from "dotenv";
-import { TaskRouter } from "./task/task.router";
+import { TaskRouter } from "./router";
 import cors from "cors";
 
 dotenv.config({ path: __dirname + "/.env" });
