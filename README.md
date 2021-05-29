@@ -2,7 +2,7 @@
 Time Tracking API\
 Author: Mateusz Maj
 ## Getting started
-To try app locally make sure you have got docker desktop installed and run these commands:\
+To try app locally make sure you have got docker desktop installed and run these commands:
 ```
 docker build -t startuphouse-task .
 docker-compose up -d
@@ -20,6 +20,7 @@ Stops tracking task
 * Node.js
 * Express.js
 * PostgreSQL
+* Sequelize
 * Docker
 * Postman
 ## Database
@@ -27,7 +28,6 @@ It contains 1 table named "tasks".
 | id                 | description | start_time | end_time|
 | ------------------ |:-----------:| :---------:| -------:|
 | SERIAL PRIMARY KEY | varchar(50) | date       | date    |
-
 ## Testing
 For testing I used Postman tool
 ### Manual testing
@@ -49,3 +49,7 @@ I wrote some automated tests, which checked responses' status codes and data.
 
 ---
 ![tests_auto](https://user-images.githubusercontent.com/52738844/120080315-94544c00-c0b8-11eb-834d-c96830055001.PNG)
+## Future development of the project
+I would definitely change the way that adding task should work. In my opinion it shouldn't stop currently tracking task, but only add the new one.\
+I think that there should also be endpoint in API, which gets all ununcompleted tasks, as it would be really useful for user.\
+Moreover API is single user only, but it would be a great idea to make User interface and connect each user to his tasks.
