@@ -11,6 +11,7 @@ TaskRouter.get("/", async (req, res) => {
 });
 TaskRouter.post("/", async (req, res) => {
     if (Object.keys(req.body).length === 0 && req.body.constructor === Object) {
+        //Check if request body isnt empty
         res.status(400).send("No data provided!");
     } else {
         await Task_Service.add_task({
