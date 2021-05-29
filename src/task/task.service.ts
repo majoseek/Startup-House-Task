@@ -10,6 +10,10 @@ const client = new Client({
 });
 client.connect();
 
+/**
+    *Returns task, which user is currently tracking
+    @returns Promise<Task>
+*/
 export const get_task = async (): Promise<Task> => {
     const { rows } = await client.query(
         "SELECT * FROM tasks WHERE end_time IS NULL"
@@ -22,6 +26,12 @@ export const get_task = async (): Promise<Task> => {
             end_time: null,
         };
 };
+
+/**
+ * Stops current task and adds new one
+ * @param {Task} task new task to add
+ * @returns Promise<null | void>
+ */
 export const add_task = async (task: Task): Promise<null | void> => {
     await stop_task();
     await client.query(
@@ -29,6 +39,11 @@ export const add_task = async (task: Task): Promise<null | void> => {
     );
     return;
 };
+
+/**
+    *Stops current task
+    @returns Promise<null | void>
+*/
 export const stop_task = async (): Promise<null | void> => {
     await client.query(`UPDATE tasks
     SET end_time=current_timestamp
