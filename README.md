@@ -44,5 +44,6 @@ At the beginning I made some manual tests with Postman\
 
 ### Automated testing
 I wrote some automated tests, which checked responses' status codes and data.
+
 ---
 ![tests_auto](https://user-images.githubusercontent.com/52738844/120080315-94544c00-c0b8-11eb-834d-c96830055001.PNG)
