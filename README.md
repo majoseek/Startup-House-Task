@@ -7,6 +7,7 @@ To try app locally make sure you have got docker desktop installed and run these
 docker build -t startuphouse-task .
 docker-compose up -d
 ```
+Server runs on port 3000, database runs on port 5432, all user stories are on ```/api``` endpoint
 ## User stories
 * GET ```/api```
 Gets currently tracking task
@@ -42,3 +43,6 @@ At the beginning I made some manual tests with Postman\
 ![get3](https://user-images.githubusercontent.com/52738844/120079124-cf538100-c0b2-11eb-8273-5665e4cb499e.PNG)
 
 ### Automated testing
+I wrote some automated tests, which checked responses' status codes and data.
+---
+![tests_auto](https://user-images.githubusercontent.com/52738844/120080315-94544c00-c0b8-11eb-834d-c96830055001.PNG)
