@@ -31,7 +31,9 @@ It contains 1 table named "tasks".
 ## Testing
 For testing I used Postman tool
 ### Manual testing
-At the beginning I made some manual tests with Postman\
+At the beginning I made some manual tests with Postman
+
+---
 ![get1](https://user-images.githubusercontent.com/52738844/120079105-c5318280-c0b2-11eb-958d-0040379deb26.PNG)
 ---
 ![post1](https://user-images.githubusercontent.com/52738844/120079112-c82c7300-c0b2-11eb-8854-e9d9efe2cf36.PNG)
