@@ -9,7 +9,7 @@ docker-compose up -d
 ```
 ## User stories
 * GET ```/api```
-Gets current tracking task
+Gets currently tracking task
 * POST ```/api```
 Stops previously tracked task and sets new one
 * PUT ```/api```
