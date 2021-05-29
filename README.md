@@ -50,6 +50,7 @@ I wrote some automated tests, which checked responses' status codes and data.
 ---
 ![tests_auto](https://user-images.githubusercontent.com/52738844/120080315-94544c00-c0b8-11eb-834d-c96830055001.PNG)
 ## Future development of the project
-I would definitely change the way that adding task should work. In my opinion it shouldn't stop currently tracking task,\but only add the new one.
-I think that there should also be endpoint in API, which gets all ununcompleted tasks,\ as it would be really useful for user.
-Moreover API is single user only, but it would be a great idea to make User interface and connect each user to his tasks.
+I would definitely change the way that adding task should work. In my opinion it shouldn't stop currently tracking task,\
+but only add the new one. I think that there should also be endpoint in API, which gets all ununcompleted tasks,\
+as it would be really useful for user. Moreover API is single user only, but it would be a great idea to make User interface\
+and connect each user to his tasks.
