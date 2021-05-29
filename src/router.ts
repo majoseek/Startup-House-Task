@@ -10,12 +10,16 @@ TaskRouter.get("/", async (req, res) => {
     else res.status(200).json({ message: "No current task", task: null });
 });
 TaskRouter.post("/", async (req, res) => {
-    await Task_Service.add_task({
-        description: req.body.description,
-        start_time: null,
-        end_time: null,
-    });
-    res.status(200).send("Tracking new task");
+    if (Object.keys(req.body).length === 0 && req.body.constructor === Object) {
+        res.status(400).send("No data provided!");
+    } else {
+        await Task_Service.add_task({
+            description: req.body.description,
+            start_time: null,
+            end_time: null,
+        });
+        res.status(200).send("Tracking new task");
+    }
 });
 TaskRouter.put("/", async (req, res) => {
     await Task_Service.stop_task();
