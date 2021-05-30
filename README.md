@@ -53,4 +53,4 @@ I wrote some automated tests, which checked responses' status codes and data.
 I would definitely change the way that adding task should work. In my opinion it shouldn't stop currently tracking task,\
 but only add the new one. I think that there should also be endpoint in API, which gets all ununcompleted tasks,\
 as it would be really useful for user. Moreover API is single user only, but it would be a great idea to make User interface\
-and connect each user to his tasks.
+and connect each user to his tasks. Adding more tests is must have.
