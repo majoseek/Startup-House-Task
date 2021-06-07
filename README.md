@@ -1,4 +1,4 @@
-# Startup-House-Task
+# Task Tracker
 Time Tracking API\
 Author: Mateusz Maj
 ## Getting started
