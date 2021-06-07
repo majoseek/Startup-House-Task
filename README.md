@@ -1,6 +1,5 @@
 # Task Tracker
 Time Tracking API\
-Author: Mateusz Maj
 ## Getting started
 To try app locally make sure you have got docker desktop installed and run these commands:
 ```
